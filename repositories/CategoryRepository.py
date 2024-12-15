@@ -23,4 +23,15 @@ class CategoryRepository:
                     print(ex)
         return result
 
+    @staticmethod
+    def create(new_cat: Category):
+        #sql
+        sql = "insert into tblCategories (CategoryName, Description) Values (%s,%s)"
+        values = [new_cat.name, new_cat.description]
+        new_cat_nr = Database.execute_sql(sql,values)
 
+        if new_cat_nr is not None:
+            new_cat.number = new_cat_nr
+            return new_cat
+        else:
+            return None

@@ -1,4 +1,5 @@
 from typing import List
+from models.Product import Product
 
 class Category:
 
@@ -6,7 +7,19 @@ class Category:
         self.number = parnumber
         self.name = parname
         self.description = pardescription
-       
+        self.__products = []
+
+    # ********** property products - (getter only) ***********
+    @property
+    def products(self) -> list[Product]:
+        """ The products property. """
+        return self.__products
+    
+    
+    def voeg_product_toe(self, new_product):
+        if isinstance(new_product, Product):
+            self.__products.append(new_product)
+
 
     # ********** property number - (setter/getter) ***********
     @property

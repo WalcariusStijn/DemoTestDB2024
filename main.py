@@ -11,13 +11,14 @@ def main():
 
         if choice.upper() == 'C':
             name = input('Enter a new category name: ')
-            pass
+            description = input ('Enter a description: ') 
+            CategoryService.add_category(name,description)
          
         elif (choice.upper() == 'R') :
             CategoryService.print_all_categories()
 
         elif choice.upper() == 'R+':
-             pass
+            CategoryService.print_all_categories_with_products()
              
         elif choice.upper() == 'S':
             id = int(input('Enter a categorynumber: '))             
